@@ -1,53 +1,32 @@
 import React, { Component } from 'react';
-import './App.css';
+
+class Name extends Component {
+  render() {
+    const name = this.props.name;
+
+    return (<span style = {{color: 'red'}} > {name} </span>);
+  }
+}
 
 export default class App extends Component {
   constructor(props) {
     super(props);
-    this.state={name: 'James'}
-  }
-  
+    this.state = {name: ''}
+  };
+
   render() {
-    const name=this.state.name;
+    const name = this.state.name;
 
     return (
       <div>
-        <h1>Hello, {name}.</h1>
+        <h1> Hello, < Name name={name} />.</h1 >
         <input
-          type="text"
-          value={name}
-          onChange={ e => {
-            this.setState({
-              name: e.target.value
-            })
-          }}
+            type="text"
+            value={name}
+            onChange={ e => {this.setState({name: e.target.value})}}
         />
       </div>
     );
   }
-  
+
 }
-
-
-// function App() {
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <img src={logo} className="App-logo" alt="logo" />
-//         <p>
-//           Edit <code>src/App.js</code> and save tototo reload.
-//         </p>
-//         <a
-//           className="App-link"
-//           href="https://reactjs.org"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           Learn React
-//         </a>
-//       </header>
-//     </div>
-//   );
-// }
-
-// export default App;
